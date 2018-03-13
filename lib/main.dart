@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/component/mytab.dart';
 import 'package:flutter_app/app/tabs/jobs.dart';
-import 'package:flutter_app/app/tabs/company.dart';
+import 'package:flutter_app/app/tabs/companyview.dart';
 import 'package:flutter_app/app/tabs/message.dart';
 import 'package:flutter_app/app/tabs/mine.dart';
 
