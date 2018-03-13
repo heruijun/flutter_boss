@@ -22,7 +22,8 @@ class JobList extends State<JobsTab> {
       backgroundColor: new Color.fromARGB(255, 242, 242, 245),
       appBar: new AppBar(
         elevation: 0.0,
-        title: new Text('Android',style: new TextStyle(fontSize: 20.0, color: Colors.white)),
+        title: new Text('Android',
+            style: new TextStyle(fontSize: 20.0, color: Colors.white)),
       ),
       body: new ListView.builder(
           itemCount: companties.length, itemBuilder: buildCompanyItem),
@@ -55,13 +56,7 @@ class JobList extends State<JobsTab> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 10.0,
-                          left: 10.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
+                      new Container(
                         child: new Text(
                           company.name,
                           textAlign: TextAlign.left,
@@ -69,7 +64,10 @@ class JobList extends State<JobsTab> {
                               fontWeight: FontWeight.bold, fontSize: 15.0
                           ),
                         ),
+                        margin: const EdgeInsets.only(
+                            top: 10.0, left: 10.0, bottom: 5.0),
                       ),
+
                       new Padding(
                         padding: const EdgeInsets.only(
                           top: 5.0,

@@ -15,7 +15,7 @@ class MyTab extends StatelessWidget {
         super(key: key);
 
   final String text;
-  final Widget icon;
+  final String icon;
 
   Widget _buildLabelText() {
     return new Text(text, softWrap: false, overflow: TextOverflow.fade);
@@ -26,13 +26,16 @@ class MyTab extends StatelessWidget {
     assert(debugCheckHasMaterial(context));
 
     double height = _kTextAndIconTabHeight;
-    Widget label = icon;
-    label = new Column(
+    Widget label = new Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           new Container(
-            child: icon,
+            child: new Image(
+              image: new AssetImage(this.icon),
+              height: 30.0,
+              width: 30.0,
+            ),
             margin: const EdgeInsets.only(bottom: _kMarginBottom),
           ),
           _buildLabelText()
@@ -46,13 +49,5 @@ class MyTab extends StatelessWidget {
         widthFactor: 1.0,
       ),
     );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder description) {
-    super.debugFillProperties(description);
-    description.add(new StringProperty('text', text, defaultValue: null));
-    description.add(
-        new DiagnosticsProperty<Widget>('icon', icon, defaultValue: null));
   }
 }

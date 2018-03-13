@@ -25,14 +25,14 @@ class CompanyList extends State<CompanyTab> {
         centerTitle: true,
         title: new Text(
             '公 司', style: new TextStyle(fontSize: 20.0, color: Colors.white)),
-        actions: <Widget>[
-          new IconButton(
-            icon: new Icon(Icons.find_in_page, color: Colors.white,),
-            onPressed: () {
-              print('onclick');
-            },
-          )
-        ],
+//        actions: <Widget>[
+//          new IconButton(
+//            icon: new Icon(Icons.find_in_page, color: Colors.white,),
+//            onPressed: () {
+//              print('onclick');
+//            },
+//          )
+//        ],
       ),
       body: new ListView.builder(
           itemCount: companties.length, itemBuilder: buildCompanyItem),
@@ -78,13 +78,7 @@ class CompanyList extends State<CompanyTab> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 10.0,
-                          left: 0.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
+                      new Container(
                         child: new Text(
                           company.name,
                           textAlign: TextAlign.left,
@@ -92,7 +86,9 @@ class CompanyList extends State<CompanyTab> {
                               fontWeight: FontWeight.bold, fontSize: 15.0
                           ),
                         ),
+                        margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
                       ),
+
                       new Padding(
                         padding: const EdgeInsets.only(
                           top: 5.0,

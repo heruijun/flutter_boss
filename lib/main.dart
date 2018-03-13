@@ -6,7 +6,6 @@ import 'package:flutter_app/app/tabs/message.dart';
 import 'package:flutter_app/app/tabs/mine.dart';
 
 const double _kTabTextSize = 11.0;
-const double _kTabIconSize = 30.0;
 
 class BossApp extends StatefulWidget {
   @override
@@ -14,17 +13,26 @@ class BossApp extends StatefulWidget {
 }
 
 class HomeState extends State<BossApp> with SingleTickerProviderStateMixin {
-  TabController controller;
+  int _currentIndex = 0;
+  TabController _controller;
 
   @override
   void initState() {
     super.initState();
-    controller = new TabController(length: 4, vsync: this);
+    _controller =
+    new TabController(initialIndex: _currentIndex, length: 4, vsync: this);
+    _controller.addListener(() {
+      if(_controller.indexIsChanging) {
+        setState(() {
+          _currentIndex = this._controller.index;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -34,32 +42,40 @@ class HomeState extends State<BossApp> with SingleTickerProviderStateMixin {
       body: new TabBarView(
         children: <Widget>[
           new JobsTab(), new CompanyTab(), new MessageTab(), new MineTab()],
-        controller: controller,
+        controller: _controller,
       ),
       bottomNavigationBar: new Material(
         color: Colors.white,
         child: new TabBar(
+          controller: _controller,
           indicatorSize: TabBarIndicatorSize.label,
           labelStyle: new TextStyle(fontSize: _kTabTextSize),
           tabs: <MyTab>[
             new MyTab(
-              icon: new Icon(Icons.favorite, size: _kTabIconSize),
+              icon: _currentIndex == 0
+                  ? "assets/images/ic_main_tab_company_pre.png"
+                  : "assets/images/ic_main_tab_company_nor.png",
               text: "职位",
             ),
             new MyTab(
-              icon: new Icon(Icons.favorite, size: _kTabIconSize),
+              icon: _currentIndex == 1
+                  ? "assets/images/ic_main_tab_contacts_pre.png"
+                  : "assets/images/ic_main_tab_contacts_nor.png",
               text: "公司",
             ),
             new MyTab(
-              icon: new Icon(Icons.adb, size: _kTabIconSize),
+              icon: _currentIndex == 2
+                  ? "assets/images/ic_main_tab_find_pre.png"
+                  : "assets/images/ic_main_tab_find_nor.png",
               text: "消息",
             ),
             new MyTab(
-              icon: new Icon(Icons.airport_shuttle, size: _kTabIconSize),
+              icon: _currentIndex == 3
+                  ? "assets/images/ic_main_tab_my_pre.png"
+                  : "assets/images/ic_main_tab_my_nor.png",
               text: "我的",
             ),
           ],
-          controller: controller,
         ),
       ),
     );

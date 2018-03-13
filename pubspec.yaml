@@ -31,20 +31,15 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
-#  assets:
-#      - assets/images/menu1.png
-#      - assets/images/menu2.png
-#      - assets/images/menu3.png
-#      - assets/images/menu4.png
-#      - assets/images/menu5.png
-#      - assets/images/menu7.png
-#      - assets/images/menu8.png
-#      - assets/images/menu9.png
-#      - assets/images/menu10.png
-#      - assets/images/menu11.png
-#      - assets/images/menu12.png
-#      - assets/images/menu13.png
-#      - assets/images/menu14.png
+  assets:
+      - assets/images/ic_main_tab_company_nor.png
+      - assets/images/ic_main_tab_company_pre.png
+      - assets/images/ic_main_tab_contacts_nor.png
+      - assets/images/ic_main_tab_contacts_pre.png
+      - assets/images/ic_main_tab_find_nor.png
+      - assets/images/ic_main_tab_find_pre.png
+      - assets/images/ic_main_tab_my_nor.png
+      - assets/images/ic_main_tab_my_pre.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
