@@ -35,8 +35,6 @@ class JobList extends State<JobsTab> {
 
     var jobItem = new GestureDetector(
 
-      // onTap: () => navigateToMovieDetailPage(movie, index),
-
       child: new Padding(
         padding: const EdgeInsets.only(
           top: 3.0,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/item/companylistitem.dart';
 import 'package:flutter_app/app/model/company.dart';
+import 'package:flutter_app/app/page/companydetail.dart';
 
 class CompanyTab extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class CompanyTab extends StatefulWidget {
 
 class CompanyList extends State<CompanyTab> {
 
-  List<Company> companties = [];
+  List<Company> _companties = [];
 
   @override
   void initState() {
@@ -35,120 +37,16 @@ class CompanyList extends State<CompanyTab> {
 //        ],
       ),
       body: new ListView.builder(
-          itemCount: companties.length, itemBuilder: buildCompanyItem),
+          itemCount: _companties.length, itemBuilder: buildCompanyItem),
     );
   }
 
   buildCompanyItem(BuildContext context, int index) {
-    Company company = companties[index];
+    Company company = _companties[index];
 
     var companyItem = new GestureDetector(
-
-      // onTap: () => navigateToMovieDetailPage(movie, index),
-
-      child: new Padding(
-        padding: const EdgeInsets.only(
-          top: 3.0,
-          left: 5.0,
-          right: 5.0,
-          bottom: 3.0,
-        ),
-
-        child: new SizedBox(
-          child: new Card(
-            elevation: 0.0,
-            child: new Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                new Padding(
-                  padding: const EdgeInsets.only(
-                    top: 10.0,
-                    left: 15.0,
-                    right: 15.0,
-                    bottom: 0.0,
-                  ),
-                  child: new Image.network(
-                    company.logo,
-                    width: 50.0,
-                    height: 50.0,),
-                ),
-
-                new Expanded(
-                  child: new Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new Container(
-                        child: new Text(
-                          company.name,
-                          textAlign: TextAlign.left,
-                          style: new TextStyle(fontSize: 15.0),
-                        ),
-                        margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-                      ),
-
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5.0,
-                          left: 0.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
-                        child: new Text(company.location, style: new TextStyle(
-                            fontSize: 13.0, color: Colors.grey)),
-                      ),
-
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5.0,
-                          left: 0.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
-                        child: new Text(
-                            company.type + " | " + company.size + " | " +
-                                company.employee, style: new TextStyle(
-                            fontSize: 13.0, color: Colors.grey)),
-                      ),
-
-                      new Divider(),
-                      new Row(
-                        children: <Widget>[
-                          new Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5.0,
-                              left: 0.0,
-                              right: 5.0,
-                              bottom: 15.0,
-                            ),
-                            child: new Text(
-                                "热招：" + company.hot + " 等" + company.count +
-                                    "个职位", style: new TextStyle(
-                                fontSize: 13.0, color: Colors.grey)),
-                          ),
-                          new Expanded(child: new Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              new Padding(
-                                padding: const EdgeInsets.only(
-                                  bottom: 8.0,
-                                ),
-                                child: const Icon(
-                                  Icons.keyboard_arrow_right,
-                                  color: Colors.grey,),
-                              ),
-                            ],
-                          ))
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+        onTap: () => navCompanyDetail(company, index),
+        child: new CompanyListItem(company)
     );
 
     return companyItem;
@@ -156,7 +54,7 @@ class CompanyList extends State<CompanyTab> {
 
   void getCompanyList() {
     setState(() {
-      companties = Company.fromJson("""
+      _companties = Company.fromJson("""
           {
             "list": [
               {
@@ -193,5 +91,23 @@ class CompanyList extends State<CompanyTab> {
           }
       """);
     });
+  }
+
+  navCompanyDetail(Company company, int index) {
+    Navigator.of(context).push(new PageRouteBuilder(
+        opaque: false,
+        pageBuilder: (BuildContext context, _, __) {
+          return new CompanyDetail();
+        },
+        transitionsBuilder: (_, Animation<double> animation, __, Widget child) {
+          return new FadeTransition(
+            opacity: animation,
+            child: new SlideTransition(position: new Tween<Offset>(
+              begin: const Offset(0.0, 1.0),
+              end: Offset.zero,
+            ).animate(animation), child: child),
+          );
+        }
+    ));
   }
 }
