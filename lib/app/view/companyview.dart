@@ -156,8 +156,42 @@ class CompanyList extends State<CompanyTab> {
 
   void getCompanyList() {
     setState(() {
-      companties = Company.fromJson();
+      companties = Company.fromJson("""
+          {
+            "list": [
+              {
+                "logo": "https://img2.bosszhipin.com/mcs/chatphoto/20160220/6042752606dc6957d81c5f08f409db8e5e01c286644ac62b728b8918eb85ca28.jpg",
+                "name": "平安银行",
+                "location": "上海徐汇区平安大厦凯滨路206号",
+                "type": "互联网",
+                "size": "已上市",
+                "employee": "10000人以上",
+                "hot": "前端架构师",
+                "count": "400"
+              },
+              {
+                "logo": "https://img.bosszhipin.com/beijin/mcs/chatphoto/20170927/60158fe74a9233b55ee08206ca5df1dccfcd208495d565ef66e7dff9f98764da.jpg",
+                "name": "百度",
+                "location": "上海市浦东新区",
+                "type": "互联网",
+                "size": "已上市",
+                "employee": "10000人以上",
+                "hot": "Android架构师",
+                "count": "300"
+              },
+              {
+                "logo": "https://img2.bosszhipin.com/mcs/chatphoto/20160317/5d308646e6e4bc4e68d5f97a74c14dcda2d41b7cc34321f537d83206460d4ca6.jpg",
+                "name": "欧那教育",
+                "location": "普陀区长寿路137号财富时代大厦6楼",
+                "type": "互联网教育",
+                "size": "A轮",
+                "employee": "100-400人",
+                "hot": "app技术经理",
+                "count": "50"
+              }
+            ]
+          }
+      """);
     });
   }
-
 }

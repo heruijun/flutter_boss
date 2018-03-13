@@ -19,30 +19,9 @@ class Job {
     @required this.title
   });
 
-  static List<Job> fromJson() {
+  static List<Job> fromJson(String json) {
     return JSON
-        .decode("""
-          {
-            "list": [
-              {
-                "name": "架构师（Android）",
-                "cname": "平安银行",
-                "size": "已上市",
-                "salary": "25k-35k",
-                "username": "Claire",
-                "title": "HR"
-              },
-              {
-                "name": "架构师（Android）",
-                "cname": "平安银行",
-                "size": "已上市",
-                "salary": "25k-35k",
-                "username": "Claire",
-                "title": "HR"
-              }
-            ]
-          }
-      """)['list']
+        .decode(json)['list']
         .map((obj) => Job.fromMap(obj))
         .toList();
   }

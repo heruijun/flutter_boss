@@ -125,7 +125,28 @@ class JobList extends State<JobsTab> {
 
   void getCompanyList() {
     setState(() {
-      _jobs = Job.fromJson();
+      _jobs = Job.fromJson("""
+          {
+            "list": [
+              {
+                "name": "架构师（Android）",
+                "cname": "平安银行",
+                "size": "已上市",
+                "salary": "25k-35k",
+                "username": "Claire",
+                "title": "HR"
+              },
+              {
+                "name": "架构师（Android）",
+                "cname": "平安银行",
+                "size": "已上市",
+                "salary": "25k-35k",
+                "username": "Claire",
+                "title": "HR"
+              }
+            ]
+          }
+      """);
     });
   }
 
