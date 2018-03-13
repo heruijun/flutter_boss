@@ -37,7 +37,7 @@ class HomeState extends State<BossApp> with SingleTickerProviderStateMixin {
         controller: controller,
       ),
       bottomNavigationBar: new Material(
-        color: Colors.blue,
+        color: Colors.white,
         child: new TabBar(
           indicatorSize: TabBarIndicatorSize.label,
           labelStyle: new TextStyle(fontSize: _kTabTextSize),
@@ -69,5 +69,10 @@ class HomeState extends State<BossApp> with SingleTickerProviderStateMixin {
 void main() {
   runApp(new MaterialApp(
       title: "Boss直聘",
+      theme: new ThemeData(
+        brightness: Brightness.light,
+        primaryColor: new Color.fromARGB(255, 0, 215, 198),
+        accentColor: Colors.cyan[300],
+      ),
       home: new BossApp()));
 }
