@@ -82,9 +82,7 @@ class CompanyList extends State<CompanyTab> {
                         child: new Text(
                           company.name,
                           textAlign: TextAlign.left,
-                          style: new TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15.0
-                          ),
+                          style: new TextStyle(fontSize: 15.0),
                         ),
                         margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
                       ),
@@ -96,7 +94,8 @@ class CompanyList extends State<CompanyTab> {
                           right: 5.0,
                           bottom: 5.0,
                         ),
-                        child: new Text(company.location),
+                        child: new Text(company.location, style: new TextStyle(
+                            fontSize: 13.0, color: Colors.grey)),
                       ),
 
                       new Padding(
@@ -108,7 +107,8 @@ class CompanyList extends State<CompanyTab> {
                         ),
                         child: new Text(
                             company.type + " | " + company.size + " | " +
-                                company.employee),
+                                company.employee, style: new TextStyle(
+                            fontSize: 13.0, color: Colors.grey)),
                       ),
 
                       new Divider(),
@@ -123,7 +123,8 @@ class CompanyList extends State<CompanyTab> {
                             ),
                             child: new Text(
                                 "热招：" + company.hot + " 等" + company.count +
-                                    "个职位"),
+                                    "个职位", style: new TextStyle(
+                                fontSize: 13.0, color: Colors.grey)),
                           ),
                           new Expanded(child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.end,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/model/company.dart';
+import 'package:flutter_app/app/model/job.dart';
 
 class JobsTab extends StatefulWidget {
   @override
@@ -8,7 +8,7 @@ class JobsTab extends StatefulWidget {
 
 class JobList extends State<JobsTab> {
 
-  List<Company> companties = [];
+  List<Job> _jobs = [];
 
   @override
   void initState() {
@@ -26,14 +26,14 @@ class JobList extends State<JobsTab> {
             style: new TextStyle(fontSize: 20.0, color: Colors.white)),
       ),
       body: new ListView.builder(
-          itemCount: companties.length, itemBuilder: buildCompanyItem),
+          itemCount: _jobs.length, itemBuilder: buildJobItem),
     );
   }
 
-  buildCompanyItem(BuildContext context, int index) {
-    Company company = companties[index];
+  buildJobItem(BuildContext context, int index) {
+    Job job = _jobs[index];
 
-    var companyItem = new GestureDetector(
+    var jobItem = new GestureDetector(
 
       // onTap: () => navigateToMovieDetailPage(movie, index),
 
@@ -56,38 +56,42 @@ class JobList extends State<JobsTab> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
+                      new Row(
+                        children: <Widget>[
+                          new Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10.0,
+                              left: 10.0,
+                              bottom: 5.0,
+                            ),
+                            child: new Text(job.name),
+                          ),
+                          new Expanded(child: new Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: <Widget>[
+                              new Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 10.0,
+                                ),
+                                child: new Text(
+                                    job.salary,
+                                    style: new TextStyle(
+                                        color: Colors.red)),
+                              ),
+                            ],
+                          ))
+                        ],
+                      ),
+
                       new Container(
                         child: new Text(
-                          company.name,
+                          job.cname + ' ' + job.size,
                           textAlign: TextAlign.left,
                           style: new TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15.0
-                          ),
+                              fontSize: 15.0, color: Colors.grey),
                         ),
                         margin: const EdgeInsets.only(
-                            top: 10.0, left: 10.0, bottom: 5.0),
-                      ),
-
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5.0,
-                          left: 10.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
-                        child: new Text(company.location),
-                      ),
-
-                      new Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5.0,
-                          left: 10.0,
-                          right: 5.0,
-                          bottom: 5.0,
-                        ),
-                        child: new Text(
-                            company.type + " | " + company.size + " | " +
-                                company.employee),
+                            top: 5.0, left: 10.0, bottom: 5.0),
                       ),
 
                       new Divider(),
@@ -100,9 +104,9 @@ class JobList extends State<JobsTab> {
                               right: 5.0,
                               bottom: 15.0,
                             ),
-                            child: new Text(
-                                "热招：" + company.hot + " 等" + company.count +
-                                    "个职位"),
+                            child: new Text(job.username + " | " + job.title,
+                                style: new TextStyle(color: new Color.fromARGB(
+                                    255, 0, 215, 198))),
                           ),
                         ],
                       ),
@@ -116,12 +120,12 @@ class JobList extends State<JobsTab> {
       ),
     );
 
-    return companyItem;
+    return jobItem;
   }
 
   void getCompanyList() {
     setState(() {
-      companties = Company.fromJson();
+      _jobs = Job.fromJson();
     });
   }
 

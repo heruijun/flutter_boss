@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/component/mytab.dart';
-import 'package:flutter_app/app/tabs/jobs.dart';
-import 'package:flutter_app/app/tabs/companyview.dart';
-import 'package:flutter_app/app/tabs/message.dart';
-import 'package:flutter_app/app/tabs/mine.dart';
+import 'package:flutter_app/app/view/jobsview.dart';
+import 'package:flutter_app/app/view/companyview.dart';
+import 'package:flutter_app/app/view/message.dart';
+import 'package:flutter_app/app/view/mine.dart';
 
 const double _kTabTextSize = 11.0;
 
@@ -15,23 +15,25 @@ class BossApp extends StatefulWidget {
 class HomeState extends State<BossApp> with SingleTickerProviderStateMixin {
   int _currentIndex = 0;
   TabController _controller;
+  VoidCallback onChanged;
 
   @override
   void initState() {
     super.initState();
     _controller =
     new TabController(initialIndex: _currentIndex, length: 4, vsync: this);
-    _controller.addListener(() {
-      if(_controller.indexIsChanging) {
-        setState(() {
-          _currentIndex = this._controller.index;
-        });
-      }
-    });
+    onChanged = () {
+      setState(() {
+        _currentIndex = this._controller.index;
+      });
+    };
+
+    _controller.addListener(onChanged);
   }
 
   @override
   void dispose() {
+    _controller.removeListener(onChanged);
     _controller.dispose();
     super.dispose();
   }
