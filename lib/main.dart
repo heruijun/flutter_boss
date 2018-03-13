@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/component/mytab.dart';
 import 'package:flutter_app/app/view/jobsview.dart';
 import 'package:flutter_app/app/view/companyview.dart';
-import 'package:flutter_app/app/view/message.dart';
+import 'package:flutter_app/app/view/messageview.dart';
 import 'package:flutter_app/app/view/mine.dart';
 
 const double _kTabTextSize = 11.0;
