@@ -12,6 +12,9 @@
 6. IDE还不是很友好，hot reload有时无效。
 7. 还是比RN要复杂一些的。
 
+## 先上效果
+![img](https://github.com/heruijun/flutter_boss/blob/master/effect.gif)
+
 ## 涉及技术点
 1. Theme主题设置
 ```Dart
@@ -92,10 +95,14 @@
     ));
 ```
 
-## 运行效果
-![img](https://github.com/heruijun/flutter_boss/blob/master/effect.gif)
+## TODO
+1. 下拉筛选组件
+2. mock server，模拟真实请求
+3. 分页
+4. 目录结构调整，更符合生产环境
+5. viewpager轮播图
+6. 路由机制封装
 
 ## 联系方式
 微信：heruijun2258，注明来意。
-
 
