@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/item/messagelistitem.dart';
-import 'package:flutter_app/app/model/company.dart';
 import 'package:flutter_app/app/model/message.dart';
-import 'package:flutter_app/app/page/companydetail.dart';
 
 class MessageTab extends StatefulWidget {
   @override
@@ -28,14 +26,6 @@ class MessageList extends State<MessageTab> {
         centerTitle: true,
         title: new Text(
             '消 息', style: new TextStyle(fontSize: 20.0, color: Colors.white)),
-//        actions: <Widget>[
-//          new IconButton(
-//            icon: new Icon(Icons.find_in_page, color: Colors.white,),
-//            onPressed: () {
-//              print('onclick');
-//            },
-//          )
-//        ],
       ),
       body: new ListView.builder(
           itemCount: _messages.length, itemBuilder: buildCompanyItem),
