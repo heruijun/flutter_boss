@@ -74,43 +74,52 @@ class MineTab extends StatelessWidget {
 
           new SliverList(
               delegate: new SliverChildListDelegate(<Widget>[
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    new _ContactItem(
-                      onPressed: () {
-                        showDialog(context: context, child: new AlertDialog(
-                            content: new Text(
-                              "沟通过",
-                              style: new TextStyle(fontSize: 20.0),
-                            )));
-                      },
-                      count: '590',
-                      title: '沟通过',
+                new Container(
+                  color: Colors.white,
+                  child: new Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10.0,
+                      bottom: 10.0,
                     ),
-                    new _ContactItem(
-                      onPressed: () {
-                        showDialog(context: context, child: new AlertDialog(
-                            content: new Text(
-                              "已沟通",
-                              style: new TextStyle(fontSize: 20.0),
-                            )));
-                      },
-                      count: '71',
-                      title: '已沟通',
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        new _ContactItem(
+                          onPressed: () {
+                            showDialog(context: context, child: new AlertDialog(
+                                content: new Text(
+                                  "沟通过",
+                                  style: new TextStyle(fontSize: 20.0),
+                                )));
+                          },
+                          count: '590',
+                          title: '沟通过',
+                        ),
+                        new _ContactItem(
+                          onPressed: () {
+                            showDialog(context: context, child: new AlertDialog(
+                                content: new Text(
+                                  "已沟通",
+                                  style: new TextStyle(fontSize: 20.0),
+                                )));
+                          },
+                          count: '71',
+                          title: '已沟通',
+                        ),
+                        new _ContactItem(
+                          onPressed: () {
+                            showDialog(context: context, child: new AlertDialog(
+                                content: new Text(
+                                  "已沟通",
+                                  style: new TextStyle(fontSize: 20.0),
+                                )));
+                          },
+                          count: '0',
+                          title: '待面试',
+                        ),
+                      ],
                     ),
-                    new _ContactItem(
-                      onPressed: () {
-                        showDialog(context: context, child: new AlertDialog(
-                            content: new Text(
-                              "已沟通",
-                              style: new TextStyle(fontSize: 20.0),
-                            )));
-                      },
-                      count: '0',
-                      title: '待面试',
-                    ),
-                  ],
+                  ),
                 ),
               ])
           )
@@ -136,7 +145,6 @@ class _ContactItem extends StatelessWidget {
           children: [
             new Padding(
               padding: const EdgeInsets.only(
-                top: 10.0,
                 bottom: 10.0,
               ),
               child: new Text(count, style: new TextStyle(

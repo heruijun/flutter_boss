@@ -26,8 +26,11 @@ class JobList extends State<JobsTab> {
         title: new Text('Android',
             style: new TextStyle(fontSize: 20.0, color: Colors.white)),
       ),
-      body: new ListView.builder(
-          itemCount: _jobs.length, itemBuilder: buildJobItem),
+      body:
+      new Container(
+        child: new ListView.builder(
+            itemCount: _jobs.length, itemBuilder: buildJobItem),
+      ),
     );
   }
 
@@ -55,19 +58,19 @@ class JobList extends State<JobsTab> {
             "list": [
               {
                 "name": "架构师（Android）",
-                "cname": "平安银行",
-                "size": "已上市",
-                "salary": "25k-35k",
+                "cname": "蚂蚁金服",
+                "size": "B轮",
+                "salary": "25k-45k",
                 "username": "Claire",
                 "title": "HR"
               },
               {
-                "name": "架构师（Android）",
-                "cname": "平安银行",
-                "size": "已上市",
-                "salary": "25k-35k",
-                "username": "Claire",
-                "title": "HR"
+                "name": "资深Android架构师",
+                "cname": "今日头条",
+                "size": "D轮",
+                "salary": "40k-60k",
+                "username": "Kimi",
+                "title": "HRBP"
               }
             ]
           }

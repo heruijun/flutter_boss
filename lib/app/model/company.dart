@@ -11,6 +11,7 @@ class Company {
   final String employee; // 公司人数
   final String hot; // 热招职位
   final String count; // 职位总数
+  final String inc;   // 公司详情
 
   //构造函数
   Company({
@@ -21,7 +22,8 @@ class Company {
     @required this.size,
     @required this.employee,
     @required this.hot,
-    @required this.count
+    @required this.count,
+    @required this.inc
   });
 
   static List<Company> fromJson(String json) {
@@ -40,7 +42,8 @@ class Company {
         size: map['size'],
         employee: map['employee'],
         hot: map['hot'],
-        count: map['count']
+        count: map['count'],
+        inc: map['inc']
     );
   }
 }
