@@ -19,9 +19,9 @@
 4.解决了官方demo里路由跳转效果卡顿的问题
 
 ## 运行效果
-
+![img](https://github.com/heruijun/flutter_boss/blob/master/effect.gif)
 
 ## 联系方式
-微信：heruijun2258
+微信：heruijun2258，注明来意。
 
 
