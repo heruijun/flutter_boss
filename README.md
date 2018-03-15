@@ -15,6 +15,14 @@
 ## 先上效果
 ![img](https://github.com/heruijun/flutter_boss/blob/master/effect.gif)
 
+## 环境问题
+如果flutter环境有问题，在.bash_profile里加上如下内容
+```
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export PATH=`pwd`/flutter/bin:$PATH
+```
+
 ## 涉及技术点
 1. Theme主题设置
 ```Dart
