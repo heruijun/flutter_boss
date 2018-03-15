@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CompanyInc extends StatelessWidget {
-
-  final String _companyInc;
-
-  CompanyInc(this._companyInc);
+class CompanyHotJob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +14,9 @@ class CompanyInc extends StatelessWidget {
         ),
         child:  new RichText(
           text: new TextSpan(
-            text: _companyInc,
+            text: '敬请期待',
             style: new TextStyle(
-                fontSize: 13.0,
+                fontSize: 16.0,
                 color: Colors.black
             ),
           ),
