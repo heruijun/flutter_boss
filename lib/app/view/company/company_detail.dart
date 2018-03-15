@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/model/company.dart';
+import 'package:flutter_app/app/view/company/company_inc.dart';
 
 enum AppBarBehavior { normal, pinned, floating, snapping }
 
@@ -56,23 +57,7 @@ class CompanyDetail extends StatelessWidget {
                 delegate: new SliverChildListDelegate(<Widget>[
                   new Column(
                     children: [
-                      new Padding(
-                          padding: const EdgeInsets.only(
-                            top: 30.0,
-                            left: 20.0,
-                            right: 20.0,
-                            bottom: 50.0,
-                          ),
-                          child:  new RichText(
-                            text: new TextSpan(
-                              text: _company.inc,
-                              style: new TextStyle(
-                                fontSize: 16.0,
-                                color: Colors.black
-                              ),
-                            ),
-                          )
-                      ),
+                      new CompanyInc(_company.inc)
                     ],
                   ),
                 ])
@@ -80,34 +65,5 @@ class CompanyDetail extends StatelessWidget {
           ],
         ),
       );
-  }
-}
-
-class _ContactItem extends StatelessWidget {
-  _ContactItem({ Key key, this.count, this.title, this.onPressed })
-      : super(key: key);
-
-  final String count;
-  final String title;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return new GestureDetector(
-        onTap: onPressed,
-        child: new Column(
-          children: [
-            new Padding(
-              padding: const EdgeInsets.only(
-                top: 10.0,
-                bottom: 10.0,
-              ),
-              child: new Text(count, style: new TextStyle(
-                  fontSize: 22.0)),
-            ),
-            new Text(title),
-          ],
-        )
-    );
   }
 }

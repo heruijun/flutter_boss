@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/component/mytab.dart';
-import 'package:flutter_app/app/view/jobsview.dart';
-import 'package:flutter_app/app/view/companyview.dart';
-import 'package:flutter_app/app/view/messageview.dart';
-import 'package:flutter_app/app/view/mine.dart';
+import 'package:flutter_app/app/view/jobs_view.dart';
+import 'package:flutter_app/app/view/company/company_view.dart';
+import 'package:flutter_app/app/view/message_view.dart';
+import 'package:flutter_app/app/view/mine_view.dart';
 
 const double _kTabTextSize = 11.0;
 
