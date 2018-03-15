@@ -22,10 +22,7 @@ class MessageListItem extends StatelessWidget {
                 ),
                 child: new CircleAvatar(
                   radius: 20.0,
-                  child: new Image.network(
-                      message.avatar,
-                      width: 40.0,
-                      height: 40.0),
+                  backgroundImage: new NetworkImage(message.avatar)
                 )
             ),
 

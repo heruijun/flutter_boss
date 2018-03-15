@@ -36,11 +36,10 @@ class MineTab extends StatelessWidget {
                           left: 30.0,
                           right: 20.0,
                         ),
-                        child: new Image.network(
-                            'https://img.bosszhipin.com/beijin/mcs/useravatar/20171211/4d147d8bb3e2a3478e20b50ad614f4d02062e3aec7ce2519b427d24a3f300d68_s.jpg',
-                            width: 70.0,
-                            height: 70.0
-                        ),
+                        child: new CircleAvatar(
+                          radius: 35.0,
+                          backgroundImage: new NetworkImage('https://img.bosszhipin.com/beijin/mcs/useravatar/20171211/4d147d8bb3e2a3478e20b50ad614f4d02062e3aec7ce2519b427d24a3f300d68_s.jpg')
+                        )
                       ),
 
                       new Row(
