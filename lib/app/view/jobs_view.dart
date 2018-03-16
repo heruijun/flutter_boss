@@ -26,11 +26,8 @@ class JobList extends State<JobsTab> {
         title: new Text('Android',
             style: new TextStyle(fontSize: 20.0, color: Colors.white)),
       ),
-      body:
-      new Container(
-        child: new ListView.builder(
-            itemCount: _jobs.length, itemBuilder: buildJobItem),
-      ),
+      body: new ListView.builder(
+          itemCount: _jobs.length, itemBuilder: buildJobItem),
     );
   }
 

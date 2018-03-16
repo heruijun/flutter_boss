@@ -98,6 +98,9 @@ class CompanyDetailState extends State<CompanyDetail>
                           new CompanyInfo(widget._company),
                           new Divider(),
                           new TabBar(
+                            indicatorWeight: 3.0,
+                            indicatorSize: TabBarIndicatorSize.tab,
+                            labelStyle: new TextStyle(fontSize: 16.0),
                             labelColor: Colors.black,
                             controller: _controller,
                             tabs: _tabs,
