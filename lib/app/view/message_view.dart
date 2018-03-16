@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/item/messagelistitem.dart';
+import 'package:flutter_app/app/item/messagelist_item.dart';
 import 'package:flutter_app/app/model/message.dart';
 
 class MessageTab extends StatefulWidget {

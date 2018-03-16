@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/model/company.dart';
 import 'package:flutter_app/app/view/company/company_hot_job.dart';
 import 'package:flutter_app/app/view/company/company_inc.dart';
+import 'package:flutter_app/app/view/company/company_info.dart';
 
 enum AppBarBehavior { normal, pinned, floating, snapping }
 
@@ -18,7 +19,7 @@ class CompanyDetail extends StatefulWidget {
 class CompanyDetailState extends State<CompanyDetail>
     with TickerProviderStateMixin {
 
-  final double _appBarHeight = 256.0;
+  final double _appBarHeight = 200.0;
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
   List<Tab> _tabs;
   List<Widget> _pages;
@@ -81,31 +82,33 @@ class CompanyDetailState extends State<CompanyDetail>
 
             new SliverList(
                 delegate: new SliverChildListDelegate(<Widget>[
-                  new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                    ),
-                    child: new Column(
-                      children: [
-                        new TabBar(
-                          labelColor: Colors.black,
-                          controller: _controller,
-                          tabs: _tabs,
-                          indicatorColor: Theme
-                              .of(context)
-                              .primaryColor,
-                        ),
-
-                        new SizedBox.fromSize(
-                          size: const Size.fromHeight(600.0),
-                          child: new TabBarView(
+                  new Column(
+                    children: [
+                      new Container(
+                        color: Colors.white,
+                        child: new Column(
+                          children: <Widget>[
+                            new CompanyInfo(widget._company),
+                            new Divider(),
+                            new TabBar(
+                              labelColor: Colors.black,
                               controller: _controller,
-                              children: _pages
-                          ),
-                        )
-                      ],
-                    ),
+                              tabs: _tabs,
+                              indicatorColor: Theme
+                                  .of(context)
+                                  .primaryColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                      new SizedBox.fromSize(
+                        size: const Size.fromHeight(600.0),
+                        child: new TabBarView(
+                            controller: _controller,
+                            children: _pages
+                        ),
+                      )
+                    ],
                   ),
                 ])
             )

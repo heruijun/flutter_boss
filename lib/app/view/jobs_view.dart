@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/item/joblistitem.dart';
+import 'package:flutter_app/app/item/joblist_item.dart';
 import 'package:flutter_app/app/model/job.dart';
 
 class JobsTab extends StatefulWidget {

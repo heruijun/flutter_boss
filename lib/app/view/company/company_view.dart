@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/item/companylistitem.dart';
+import 'package:flutter_app/app/item/companylist_item.dart';
 import 'package:flutter_app/app/model/company.dart';
 import 'package:flutter_app/app/view/company/company_detail.dart';
 
