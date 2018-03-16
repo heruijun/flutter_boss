@@ -82,22 +82,22 @@ class IndicatorViewPagerState extends State<IndicatorViewPager> {
             ),
             new Positioned(
               bottom: 0.0,
-              left: 0.0,
               right: 0.0,
               child: new Container(
                 // color: Colors.grey[800].withOpacity(0.5),
-                padding: const EdgeInsets.all(15.0),
-                child: new DotsIndicator(
-                  controller: _controller,
-                  itemCount: widget._pages.length,
-                  onPageSelected: (int page) {
-                    _controller.animateToPage(
-                      page,
-                      duration: _kDuration,
-                      curve: _kCurve,
-                    );
-                  },
-                ),
+                  padding: const EdgeInsets.all(15.0),
+                  child:
+                  new DotsIndicator(
+                    controller: _controller,
+                    itemCount: widget._pages.length,
+                    onPageSelected: (int page) {
+                      _controller.animateToPage(
+                        page,
+                        duration: _kDuration,
+                        curve: _kCurve,
+                      );
+                    },
+                  )
               ),
             ),
           ],

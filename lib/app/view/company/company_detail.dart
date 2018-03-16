@@ -7,7 +7,7 @@ import 'package:flutter_app/app/view/company/company_info.dart';
 
 enum AppBarBehavior { normal, pinned, floating, snapping }
 
-const double _kAppBarHeight = 200.0;
+const double _kAppBarHeight = 256.0;
 
 class CompanyDetail extends StatefulWidget {
 
@@ -41,14 +41,17 @@ class CompanyDetailState extends State<CompanyDetail>
       _imagePages = <Widget>[];
       _urls.forEach((String url) {
         _imagePages.add(
-            new ConstrainedBox(
-              constraints: const BoxConstraints.expand(),
-              child: new Image.network(
-                url,
-                fit: BoxFit.cover,
-                height: _kAppBarHeight,
-              ),
-            ));
+            new Container(
+                color: Colors.black.withAlpha(900),
+                child: new ConstrainedBox(
+                  constraints: const BoxConstraints.expand(),
+                  child: new Image.network(
+                    url,
+                    fit: BoxFit.cover,
+                    height: _kAppBarHeight,
+                  ),
+                ))
+        );
       });
     }
     _tabs = [
@@ -81,6 +84,7 @@ class CompanyDetailState extends State<CompanyDetail>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: new Color.fromARGB(255, 242, 242, 245),
         body: new Stack(
           children: <Widget>[
             new SingleChildScrollView(
