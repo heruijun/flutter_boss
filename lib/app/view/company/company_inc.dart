@@ -16,7 +16,7 @@ class CompanyInc extends StatelessWidget {
           right: 20.0,
           bottom: 50.0,
         ),
-        child:  new RichText(
+        child: new RichText(
           text: new TextSpan(
             text: _companyInc,
             style: new TextStyle(

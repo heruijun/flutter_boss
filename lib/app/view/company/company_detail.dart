@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/component/indicator_viewpager.dart';
 import 'package:flutter_app/app/model/company.dart';
 import 'package:flutter_app/app/view/company/company_hot_job.dart';
 import 'package:flutter_app/app/view/company/company_inc.dart';
@@ -23,11 +24,31 @@ class CompanyDetailState extends State<CompanyDetail>
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
   List<Tab> _tabs;
   List<Widget> _pages;
+  List<Widget> _imagePages;
   TabController _controller;
+  List<String> _urls = [
+    'https://img.bosszhipin.com/beijin/mcs/chatphoto/20170725/861159df793857d6cb984b52db4d4c9c.jpg',
+    'https://img2.bosszhipin.com/mcs/chatphoto/20151215/a79ac724c2da2a66575dab35384d2d75532b24d64bc38c29402b4a6629fcefd6_s.jpg',
+    'https://img.bosszhipin.com/beijin/mcs/chatphoto/20180207/c15c2fc01c7407b98faf4002e682676b.jpg'
+  ];
 
   @override
   void initState() {
     super.initState();
+    if (!_urls.isEmpty) {
+      _imagePages = <Widget>[];
+      _urls.forEach((String url) {
+        _imagePages.add(
+            new ConstrainedBox(
+              constraints: const BoxConstraints.expand(),
+              child: new Image.network(
+                url,
+                fit: BoxFit.cover,
+                height: _appBarHeight,
+              ),
+            ));
+      });
+    }
     _tabs = [
       new Tab(text: '公司概况'),
       new Tab(text: '热招职位'),
@@ -53,17 +74,11 @@ class CompanyDetailState extends State<CompanyDetail>
                   _appBarBehavior == AppBarBehavior.snapping,
               snap: _appBarBehavior == AppBarBehavior.snapping,
               flexibleSpace: new FlexibleSpaceBar(
-                title: new Text(widget._company.name,
-                    style: new TextStyle(color: Colors.white)),
+//                title: new Text(widget._company.name,
+//                    style: new TextStyle(color: Colors.white)),
                 background: new Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
-                    new Image.network(
-                      'https://img.bosszhipin.com/beijin/mcs/chatphoto/20170725/861159df793857d6cb984b52db4d4c9c.jpg',
-                      fit: BoxFit.cover,
-                      height: _appBarHeight,
-                    ),
-
                     const DecoratedBox(
                       decoration: const BoxDecoration(
                         gradient: const LinearGradient(
@@ -75,6 +90,8 @@ class CompanyDetailState extends State<CompanyDetail>
                         ),
                       ),
                     ),
+
+                    new IndicatorViewPager(_imagePages),
                   ],
                 ),
               ),

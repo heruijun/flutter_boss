@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 const double _kTextAndIconTabHeight = 53.0;   // 导航高度
 const double _kMarginBottom = 3.0;            // 图标与文字的间隔
 
-class MyTab extends StatelessWidget {
+class IconTab extends StatelessWidget {
 
-  const MyTab({
+  const IconTab({
     Key key,
     this.text,
     this.icon,
