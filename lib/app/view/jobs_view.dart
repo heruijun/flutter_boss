@@ -34,7 +34,7 @@ class JobList extends State<JobsTab> {
   buildJobItem(BuildContext context, int index) {
     Job job = _jobs[index];
 
-    var jobItem = new GestureDetector(
+    var jobItem = new InkWell(
         onTap: () {
           showDialog(context: context, child: new AlertDialog(
               content: new Text(

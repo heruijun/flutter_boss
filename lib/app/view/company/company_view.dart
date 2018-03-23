@@ -44,7 +44,7 @@ class CompanyList extends State<CompanyTab> {
   buildCompanyItem(BuildContext context, int index) {
     Company company = _companties[index];
 
-    var companyItem = new GestureDetector(
+    var companyItem = new InkWell(
         onTap: () => navCompanyDetail(company, index),
         child: new CompanyListItem(company)
     );
