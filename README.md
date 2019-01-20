@@ -88,7 +88,6 @@ flutter版本：[flutter仿boss直聘](https://github.com/heruijun/flutter_boss)
 
 ## qq技术Flutter讨论千人群
 * 群号：468010872
-* 群二维码：
 ![img](https://github.com/heruijun/flutter_boss/blob/master/WechatIMG1.jpeg)
 
 ## 联系方式
