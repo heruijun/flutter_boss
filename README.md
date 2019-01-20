@@ -1,5 +1,3 @@
-# flutter仿BOSS直聘（二），大前端技术实现
-
 ## 项目简介
 记得上一篇的写作时间还在2018年2月份，已经很久没更新了，而flutter的版本更新了好几次，自flutter 1.0正式版推出之后，一直有打算把之前的项目重写一下，因为flutter本身更新了许多新特性，老的已经是过去式了，也老有人来问我，之前的项目运行不了，是的，因为sdk太老了，而且之前的项目纯粹是练手玩。
 
@@ -9,7 +7,7 @@
 因为这款APP相信大家都在使用，里面组件繁多且有一定复杂度，能衍生出来许多基于flutter组件库的子项目，里面有些功能，比如地图，IM，后面都会使用flutter来实现。为了让项目更接近真实，这次连服务端也实现了。先把开源地址提供给大家：
 
 ## 项目效果图：
-![img](https://github.com/heruijun/flutter_boss/blob/master/effect2.gif)
+![img](https://user-gold-cdn.xitu.io/2019/1/20/1686a0c4b2fb9cda?w=252&h=528&f=gif&s=1194865)
 
 ## 相关技术点
 服务端：
@@ -87,7 +85,7 @@ Hero(
 flutter版本：[flutter仿boss直聘](https://github.com/heruijun/flutter_boss).
 
 ## qq技术Flutter讨论千人群号：468010872
-![img](https://github.com/heruijun/flutter_boss/blob/master/WechatIMG1.jpeg)
+![img](https://user-gold-cdn.xitu.io/2019/1/20/1686a0d003f4a331?w=541&h=741&f=jpeg&s=55386)
 
 ## 联系方式
 微信：heruijun2258，注明来意。
