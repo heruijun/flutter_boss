@@ -13,7 +13,7 @@
 github地址：
 flutter版本：[flutter仿boss直聘](https://github.com/heruijun/flutter_boss).
 
-项目效果图：
+## 项目效果图：
 ![img](https://github.com/heruijun/flutter_boss/blob/master/effect2.gif)
 
 ## 相关技术点
@@ -24,6 +24,62 @@ flutter端：
 * 项目中使用以下组件，请记住一句咒语：flutter一切皆组件。
 Container, Row, Column, Flex, ListView, CustomListView, Wrap, Padding, Center, Future, FutureBuilder, Expanded, Navigator, BottomNavigationBar, GesureDetector, Listener, CircleAvatar等以及一些自定义组件。
 * 布局语义化，不滥用布局组件，并尽量简化组件嵌套结构
+
+## 技术细节
+* 实现启动画面，在启动1.5秒后，跳转到app里，并且把启动画面的路由remove掉。
+
+```
+Navigator.of(context).pushAndRemoveUntil(
+    PageRouteBuilder<Null>(
+      pageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        return AnimatedBuilder(
+          animation: animation,
+          builder: (BuildContext context, Widget child) {
+            return Opacity(
+              opacity: animation.value,
+              child: new MainPage(title: 'Boss直聘'),
+            );
+          },
+        );
+      },
+      transitionDuration: Duration(milliseconds: 300),
+    ),
+    (Route route) => route == null);
+```
+
+* 列表页面，没啥好说的，ListView大家应该都用过，只是需要记住一点，列表再跳转详情时需要记录当前列表的滚动位置，只需加入以下代码即可：
+`key: new PageStorageKey('key-name')`
+
+* Hero动画，在详情页面里，用了2处Hero动画，Hero动画是在route切换过程中执行的动画。需要当前页和目标页一一对应起来。
+
+```
+Hero(
+  tag: heroLogo,
+  child: ClipRRect(
+    borderRadius: new BorderRadius.circular(8.0),
+    child: Image.network(
+      widget.company.logo,
+      width: 70,
+      height: 70,
+    ),
+  ),
+)),
+```
+
+* CustomListView滑动时appBar显示隐藏title。大家都知道，flexibleSpace里的CollapseMode.parallax属性可以在屏幕滚动时把title移动到appBar里，可实际上，布局是定制的，实现不了官方的那种效果，于是通过监听ScrollController并计算滚动位置的方式修改state属性让appBar的title根据滚动位置显示隐藏。
+
+```
+ _scrollListener() {
+    setState(() {
+      if (_scrollController.offset < 56 && _isShow) {
+        _isShow = false;
+      } else if (_scrollController.offset >= 56 && _isShow == false) {
+        _isShow = true;
+      }
+    });
+  }
+```
 
 ## TODO-LIST
 * 公司详情页slidePanel控件实现
