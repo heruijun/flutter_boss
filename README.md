@@ -8,11 +8,6 @@
 为什么选仿BOSS直聘作为题材？
 因为这款APP相信大家都在使用，里面组件繁多且有一定复杂度，能衍生出来许多基于flutter组件库的子项目，里面有些功能，比如地图，IM，后面都会使用flutter来实现。为了让项目更接近真实，这次连服务端也实现了。先把开源地址提供给大家：
 
-服务端版本：[flutter仿boss直聘服务端](https://github.com/heruijun/flutter-boss-server).
-
-github地址：
-flutter版本：[flutter仿boss直聘](https://github.com/heruijun/flutter_boss).
-
 ## 项目效果图：
 ![img](https://github.com/heruijun/flutter_boss/blob/master/effect2.gif)
 
@@ -85,3 +80,16 @@ Hero(
 * 公司详情页slidePanel控件实现
 * 公共弹层组件封装
 * 消息列表控件封装并实现测滑删除功能
+
+## github地址：
+服务端版本：[flutter仿boss直聘服务端](https://github.com/heruijun/flutter-boss-server).
+
+flutter版本：[flutter仿boss直聘](https://github.com/heruijun/flutter_boss).
+
+## qq技术Flutter讨论千人群
+* 群号：468010872
+* 群二维码：
+![img](https://github.com/heruijun/flutter_boss/blob/master/WechatIMG1.jpeg)
+
+## 联系方式
+微信：heruijun2258，注明来意。
